@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { BookModel } from '../../models/book.model';
+import { CounterService } from 'src/app/shared/services/counter.service';
+import { Counter2Service } from 'src/app/shared/services/counter2.service';
 
 @Component({
   selector: 'app-all-books',
@@ -11,11 +13,19 @@ export class AllBooksComponent implements OnInit{
 
   public books: BookModel[] = []
 
-  constructor(public bookService: BookService) {}
+  constructor(public bookService: BookService, public _counterService: Counter2Service) {}
 
   ngOnInit(): void {
     this.books = this.bookService.getBooks()
     console.log(this.books)
+  }
+
+  public increase(): void{
+    this._counterService.incCounter()
+  }
+
+  public decrease(): void{
+    this._counterService.decCounter()
   }
 
 }
