@@ -8,14 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
-  public name: string = ''
-  ngOnInit(): void {
-    this.route.queryParams.subscribe((queryparam) => {
-      this.name = queryparam['name']
-      console.log(queryparam)
-    })
-  }
+  ngOnInit(): void {}
 
 }
