@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { TestService } from './test.service';
-import { CounterService } from './counter.service';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+}) 
 export class Counter2Service {
 
   public counter: number = 0;
-  constructor(private _testservice: TestService) { }
+  constructor() { }
 
   public incCounter() {
     this.counter+=2;

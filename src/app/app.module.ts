@@ -8,9 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './public-components/home/home.component';
-import { Counter2Service } from './shared/services/counter2.service';
-import { CounterService } from './shared/services/counter.service';
 import { TestService } from './shared/services/test.service';
+import { counterFactory } from './shared/services/counter.factory';
 
 
 
@@ -28,10 +27,12 @@ import { TestService } from './shared/services/test.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [{provide:Counter2Service, useExisting: CounterService},
-    CounterService,
-    {provide: 'appTitle', useValue: {title: 'this is title', discription: 'this is title discription'}}
+  providers: [
+    counterFactory,
+    TestService,
+    { provide: 'appTitle', useValue: { title: 'this is title', discription: 'this is title discription' } }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

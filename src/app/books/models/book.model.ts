@@ -1,9 +1,20 @@
 import { PriceModel } from "./price.model"
 
-export interface BookModel {
-    id: number
-    title: string
-    totalPage: number
-    author: string
-    price: PriceModel
+export class BookModel {
+    public id: number
+    public title: string
+    public totalPage: number
+    private _author: string
+    public price: PriceModel
+
+    public set author (value: string) {
+        this._author = 'Author: ' + value;
+    }
+
+    public get author() {
+        return this._author;
+    }
+
+
 }
+

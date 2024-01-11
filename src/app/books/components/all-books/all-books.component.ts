@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { BookModel } from '../../models/book.model';
-import { CounterService } from 'src/app/shared/services/counter.service';
 import { Counter2Service } from 'src/app/shared/services/counter2.service';
 
 @Component({
@@ -11,13 +10,35 @@ import { Counter2Service } from 'src/app/shared/services/counter2.service';
 })
 export class AllBooksComponent implements OnInit{
 
+  private _pageTitle: string;
+
+  public set pageTitle (value: string) {
+    this._pageTitle = value;
+  }
+
+  public get pageTitle() {
+    return this._pageTitle;
+  }
+
   public books: BookModel[] = []
 
   constructor(public bookService: BookService, public _counterService: Counter2Service) {}
 
   ngOnInit(): void {
-    this.books = this.bookService.getBooks()
-    console.log(this.books)
+
+    this.pageTitle = 'All Books'
+
+    const allBooks = this.bookService.getBooks()
+    allBooks.forEach(b => {
+      var obj = new BookModel();
+      obj.id = b.id;
+      obj.author = b.author;
+      obj.price = b.price;
+      obj.title = b.title;
+      obj.totalPage = b.totalPage;
+
+      this.books.push(obj)
+    })
   }
 
   public increase(): void{
