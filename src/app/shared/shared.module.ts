@@ -6,6 +6,7 @@ import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthorsComponent } from './components/authors/authors.component';
+import { AuthorAddressComponent } from './components/author-address/author-address.component';
 
 
 
@@ -14,13 +15,14 @@ import { AuthorsComponent } from './components/authors/authors.component';
     NotFoundComponent,
     ToolbarComponent,
     FooterComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    AuthorAddressComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule
   ],
-  exports: [ToolbarComponent, FooterComponent, MaterialModule,AuthorsComponent]
+  exports: [ToolbarComponent, FooterComponent, MaterialModule,AuthorsComponent,AuthorAddressComponent]
 })
 export class SharedModule { }

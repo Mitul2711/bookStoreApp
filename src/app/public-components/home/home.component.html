@@ -1,17 +1,13 @@
-<p>home works!</p>
+<p>home parent works!</p>
 
+<button (click)="counter()">count</button>
 
+<!-- <app-authors [data]="count" [data2]="test" [author]="obj">
+    <h1>Dynamic data from parent</h1>
+</app-authors> -->
 
-<p>value : {{config.title}}</p>
+<hr>
 
-<p>value : {{config.discription}}</p>
-
-<button (click)="increase()">counter ++</button>
-
-<button (click)="decrease()">counter --</button>
-
-<p>counter: {{_counterService.counter}}</p>
-
-<h2>Our Authors</h2>
-
-<app-authors [data]="_counterService.counter" [showAuthors]="true"></app-authors>
+<app-authors [data]="count" [data2]="test" [author]="obj">
+    <app-author-address [address]="address"></app-author-address>
+</app-authors>
