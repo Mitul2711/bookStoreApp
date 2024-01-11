@@ -1,5 +1,7 @@
 <p>home works!</p>
 
+
+
 <p>value : {{config.title}}</p>
 
 <p>value : {{config.discription}}</p>
@@ -9,3 +11,7 @@
 <button (click)="decrease()">counter --</button>
 
 <p>counter: {{_counterService.counter}}</p>
+
+<h2>Our Authors</h2>
+
+<app-authors [data]="_counterService.counter" [showAuthors]="true"></app-authors>

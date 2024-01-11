@@ -10,6 +10,8 @@ export class BooksComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
+  
+
   ngOnInit(): void {}
 
 }

@@ -5,6 +5,8 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BooksComponent } from './books.component';
 import { BooksRoutingModule } from './books-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { RecentBooksComponent } from './components/recent-books/recent-books.component';
+import { BookCardsComponent } from './components/book-cards/book-cards.component';
 
 
 
@@ -12,7 +14,9 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     AllBooksComponent,
     BookDetailsComponent,
-    BooksComponent
+    BooksComponent,
+    RecentBooksComponent,
+    BookCardsComponent
   ],
   imports: [
     CommonModule,
