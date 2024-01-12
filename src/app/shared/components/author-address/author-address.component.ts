@@ -7,6 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AuthorAddressComponent {
 
-  @Input() address : string;
 
 }

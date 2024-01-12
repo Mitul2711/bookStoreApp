@@ -1,4 +1,3 @@
-<p>book-cards works!</p>
 
 
 <div class="container">
@@ -17,6 +16,12 @@
             </p>
             <p>
                 Price: {{book.price.value + ' ' + book.price.currency}}
+            </p>
+            <p>
+                Is book published: {{book.isPublished}}
+            </p>
+            <p>
+                Published On: {{book.publishedOn}} 
             </p>
         </mat-card-content>
         <mat-card-actions>

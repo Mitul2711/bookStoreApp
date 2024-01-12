@@ -1,0 +1,29 @@
+.add-book-form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    // margin-bottom: 10px;
+  }
+  
+  button {
+    margin-right: 15px;
+  }
+
+  button:hover {
+    background-color: gray;
+    color: white;
+  }
+
+  .toggle {
+    margin-top: 15px;
+    margin-right: 90px;
+  }
+  
