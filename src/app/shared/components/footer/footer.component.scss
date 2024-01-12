@@ -1,19 +1,27 @@
-
 footer {
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #3498db; 
-    color: white; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #3498db; 
+  color: white; 
+}
 
-  .link {
-    margin-right: 75%;
-  }
-  
-  
-  
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.link button {
+  margin-left: 10px; 
+  font-size: 17px;
+}
+
+.link {
+  margin-left: 25px;
+}
+
+.content h2 {
+  padding-top: 10px;
+}
