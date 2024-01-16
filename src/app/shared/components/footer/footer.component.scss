@@ -1,9 +1,10 @@
 footer {
   padding: 10px;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #3498db; 
+  z-index: 9999;
   color: white; 
 }
 
