@@ -1,29 +1,50 @@
 <h1>Add new Book using reactive form</h1>
 
-<button (click)="updateFormValue()">Update</button>
-
 <form class="add-book-form" (submit)="saveBook()" [formGroup]="addBookForm">
+
+    <mat-radio-group aria-label="Select an option" formControlName="formatType">
+        <mat-radio-button value="pdf">PDF</mat-radio-button>
+        <mat-radio-button value="doc">Doc</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill">
+        <mat-label>pdfFormat</mat-label>
+        <input matInput type="text" name="pdfFormat" placeholder="PDF" formControlName="pdfFormat">
+        <mat-icon matSuffix>picture_as_pdf</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>docFormat</mat-label>
+        <input matInput type="text" name="docFormat" placeholder="Doc" formControlName="docFormat">
+        <mat-icon matSuffix>assignment</mat-icon>
+    </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
         <input matInput type="text" name="title" placeholder="Title" formControlName="title">
         <mat-icon matSuffix>title</mat-icon>
-        <mat-hint class="mat-hint" *ngIf="addBookForm.get('title')?.invalid && addBookForm.get('title')?.touched">
-            <span *ngIf="addBookForm.get('title')?.errors?.['required']">Please enter the title of book</span>
-            <span *ngIf="addBookForm.get('title')?.errors?.['minlength']">minimum length is 5 character</span>
+        <mat-hint class="mat-hint">
+            {{titleErrorMessage}}
         </mat-hint>
     </mat-form-field>
 
     <br>
 
-    <mat-form-field appearance="fill">
-        <mat-label>Author</mat-label>
-        <input matInput type="text" name="author" placeholder="Author" formControlName="author">
-        <mat-icon matSuffix>person</mat-icon>
-        <mat-hint class="mat-hint" *ngIf="addBookForm.get('author')?.invalid && addBookForm.get('author')?.touched">
-            Please enter the name of author
-        </mat-hint>
-    </mat-form-field>
+    <div formArrayName="authors">
+        <div *ngFor="let auth of authors.controls; let i = index" class="author-container" [formGroupName]="i">
+          <mat-form-field appearance="fill" class="author-field">
+            <mat-label>Author</mat-label>
+            <input matInput type="text" name="authors" placeholder="authors" formControlName="fullName">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-hint class="mat-hint">
+              {{authorErrorMessage}}
+            </mat-hint>
+          </mat-form-field>
+          <button mat-button class="remove-button" (click)="removeAuthor(i)">Remove</button>
+        </div>
+        <button mat-button class="add-button" (click)="addMoreAuthor()">Add More</button>
+      </div>
+      
 
     <br>
 
@@ -31,7 +52,7 @@
         <mat-label>Pages</mat-label>
         <input matInput type="number" name="pages" placeholder="Pages" formControlName="totalPage">
         <mat-icon matSuffix>auto_stories</mat-icon>
-    
+
     </mat-form-field>
 
     <br>
@@ -39,7 +60,7 @@
     <div formGroupName="price">
         <mat-form-field appearance="fill">
             <mat-label>Currency</mat-label>
-            <mat-select name="currency" placeholder="Currency"  formControlName="currency">
+            <mat-select name="currency" placeholder="Currency" formControlName="currency">
                 <mat-option *ngFor="let currency of Currencies" [value]="currency.value">
                     {{currency.viewValue}}
                 </mat-option>
@@ -65,9 +86,9 @@
 
     <br>
 
-    <mat-slide-toggle class="toggle" name="isPublished" formControlName="isPublished">Is book published</mat-slide-toggle>
+    <mat-slide-toggle class="toggle" name="isPublished" formControlName="isPublished">Is book
+        published</mat-slide-toggle>
 
 
     <button type="submit" [disabled]="addBookForm.invalid" mat-raised-button color="primary">save</button>
 </form>
-

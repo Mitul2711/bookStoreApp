@@ -11,7 +11,6 @@
   
   mat-form-field {
     width: 100%;
-    // margin-bottom: 10px;
   }
   
   button {
@@ -31,3 +30,23 @@
   .mat-hint {
     color: red;
   }
+
+  .author-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .author-field {
+    width: calc(70% - 15px); 
+  }
+  
+  .remove-button {
+    margin-left: 10px; 
+  }
+  
+  .add-button {
+    margin-right: 400px;
+  }
+  
