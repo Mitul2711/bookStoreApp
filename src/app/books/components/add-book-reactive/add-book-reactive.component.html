@@ -15,7 +15,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>docFormat</mat-label>
-        <input matInput type="text" name="docFormat" placeholder="Doc" formControlName="docFormat">
+        <input matInput type="text" name="docFormat" placeholder="docFormat" formControlName="docFormat">
         <mat-icon matSuffix>assignment</mat-icon>
     </mat-form-field>
 
@@ -32,19 +32,19 @@
 
     <div formArrayName="authors">
         <div *ngFor="let auth of authors.controls; let i = index" class="author-container" [formGroupName]="i">
-          <mat-form-field appearance="fill" class="author-field">
-            <mat-label>Author</mat-label>
-            <input matInput type="text" name="authors" placeholder="authors" formControlName="fullName">
-            <mat-icon matSuffix>person</mat-icon>
-            <mat-hint class="mat-hint">
-              {{authorErrorMessage}}
-            </mat-hint>
-          </mat-form-field>
-          <button mat-button class="remove-button" (click)="removeAuthor(i)">Remove</button>
+            <mat-form-field appearance="fill" class="author-field">
+                <mat-label>Author</mat-label>
+                <input matInput type="text" name="authors" placeholder="authors" formControlName="fullName">
+                <mat-icon matSuffix>person</mat-icon>
+                <mat-hint class="mat-hint">
+                    {{authorErrorMessage}}
+                </mat-hint>
+            </mat-form-field>
+            <button mat-button class="remove-button" (click)="removeAuthor(i)">Remove</button>
         </div>
         <button mat-button class="add-button" (click)="addMoreAuthor()">Add More</button>
-      </div>
-      
+    </div>
+
 
     <br>
 
