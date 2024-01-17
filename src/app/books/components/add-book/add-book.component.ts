@@ -19,7 +19,7 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {
     this.model = new BookModel();
     this.model.title = "";
-    this.model.author = "";
+    this.model.authors = [];
     this.model.totalPage;
     this.model.price = {
       value: 100,

@@ -8,11 +8,11 @@ import { Counter2Service } from 'src/app/shared/services/counter2.service';
   templateUrl: './all-books.component.html',
   styleUrls: ['./all-books.component.scss']
 })
-export class AllBooksComponent implements OnInit{
+export class AllBooksComponent implements OnInit {
 
   private _pageTitle: string;
 
-  public set pageTitle (value: string) {
+  public set pageTitle(value: string) {
     this._pageTitle = value;
   }
 
@@ -22,33 +22,30 @@ export class AllBooksComponent implements OnInit{
 
   public books: BookModel[] = []
 
-  constructor(public bookService: BookService, public _counterService: Counter2Service) {}
+  constructor(public bookService: BookService, public _counterService: Counter2Service) { }
 
   ngOnInit(): void {
 
     this.pageTitle = 'All Books'
 
-    const allBooks = this.bookService.getBooks()
-    allBooks.forEach(b => {
-      var obj = new BookModel();
-      obj.id = b.id;
-      obj.author = b.author;
-      obj.price = b.price;
-      obj.title = b.title;
-      obj.totalPage = b.totalPage;
-      obj.isPublished = b.isPublished;
-      obj.publishedOn = b.publishedOn;
-
-      this.books.push(obj)
-    })
+    const allBooks = this.bookService.getBook();
   }
 
-  public increase(): void{
+
+  public increase(): void {
     this._counterService.incCounter()
   }
 
-  public decrease(): void{
+  public decrease(): void {
     this._counterService.decCounter()
   }
 
+  private getAllBooks(): void{
+    this.bookService.getBook().subscribe(x=>{
+      console.log(x);
+    })
+  }
+
 }
+
+
