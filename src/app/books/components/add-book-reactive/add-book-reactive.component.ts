@@ -38,7 +38,8 @@ export class AddBookReactiveComponent implements OnInit {
 
   private getAuthorControl() : FormGroup {
     return this._formBuilder.group({
-      fullName: ''
+      fullName: '',
+      address: ''
     });
 }
 
@@ -83,7 +84,9 @@ public get authors() {
     console.log(this.addBookForm.value)
 
     if(this.addBookForm.valid) {
-      this._bookService.addBook(this.addBookForm.value);
+      this._bookService.addBook(this.addBookForm.value).subscribe(x=>{
+        console.log(x);
+      })
     }
     else {
       alert('Invalid Form');

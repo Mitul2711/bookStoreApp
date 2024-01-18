@@ -29,6 +29,7 @@ export class AllBooksComponent implements OnInit {
     this.pageTitle = 'All Books'
 
     const allBooks = this.bookService.getBook();
+    this.getAllBooks()
   }
 
 
@@ -41,8 +42,10 @@ export class AllBooksComponent implements OnInit {
   }
 
   private getAllBooks(): void{
-    this.bookService.getBook().subscribe(x=>{
-      console.log(x);
+    // debugger
+    this.bookService.getBook().subscribe(book =>{
+      console.log(book)
+      this.books = book;
     })
   }
 
